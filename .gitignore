@@ -1,0 +1,13 @@
+### Java ###
+*.class
+
+### Gradle ###
+# Exclude Folder List #
+.gradle/
+build/
+
+
+/bin
+
+.classpath
+.project

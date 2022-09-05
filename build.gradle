@@ -1,0 +1,37 @@
+plugins {
+    id 'java-library'
+	id 'maven-publish'
+}
+
+dependencies {
+	implementation 'com.digitalpetri.modbus:modbus-master-tcp:1.1.1'
+	testImplementation 'junit:junit:4.12'
+}
+
+repositories {
+    mavenCentral()
+}
+
+version = '0.1.0'
+
+jar {
+    manifest {
+        attributes('Implementation-Title': project.name,
+                   'Implementation-Version': project.version)
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.meteocontrol'
+            artifactId = project.name
+            version = project.version
+            from components.java
+
+            pom {
+                description = 'Modbus functions wrapper'
+            }
+        }
+    }
+}
